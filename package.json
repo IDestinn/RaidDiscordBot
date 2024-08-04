@@ -1,5 +1,5 @@
 {
-  "name": "discord-getting-started",
+  "name": "raidDiscordBot",
   "private": true,
   "version": "1.0.0",
   "description": "Discord example app",
@@ -13,7 +13,6 @@
     "register": "node commands.js",
     "dev": "nodemon app.js"
   },
-  "author": "Shay DeWael",
   "license": "MIT",
   "dependencies": {
     "discord-interactions": "^4.0.0",
