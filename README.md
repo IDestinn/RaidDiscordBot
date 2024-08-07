@@ -1,2 +1,1 @@
-ngrok http 3000
-npm run start
+# Discord бот для создания расписания на походы в рейд Destiny 2
