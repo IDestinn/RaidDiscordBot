@@ -1,0 +1,22 @@
+version: "1.0"
+
+services:
+  bot:
+    image: "raid_bot_creater"
+    container_name: "raid_bot_container"
+    stop_signal: SIGINT
+    build:
+      context: .
+    working_dir: "/usr/src/app/raid_bot"
+    volumes:
+      - .:/usr/src/app/raid_bot
+    command: npm run start
+    restart: always
+    env_file:
+      - ".env"
+    networks:
+      - raid_bot
+
+networks:
+  tg_bot:
+    driver: raid_bot

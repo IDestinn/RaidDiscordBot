@@ -155,6 +155,7 @@ app.post(
 
           try {
             await DiscordRequest(endpoint, response);
+            return res.sendStatus(200);
           } catch (err) {
             console.error("Error sending message:", err);
           }
@@ -191,15 +192,15 @@ app.post(
 
           try {
             await DiscordRequest(endpoint, response);
+            return res.sendStatus(200);
           } catch (err) {
             console.error("Error sending message:", err);
           }
         }
       }
+      console.error("unknown interaction type", type);
+      return res.status(400).json({ error: "unknown interaction type" });
     }
-
-    console.error("unknown interaction type", type);
-    return res.status(400).json({ error: "unknown interaction type" });
   }
 );
 
