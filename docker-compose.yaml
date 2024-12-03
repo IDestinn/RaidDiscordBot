@@ -14,3 +14,12 @@ services:
     restart: always
     env_file:
       - ".env"
+  ngrok:
+    image: ngrok/ngrok:latest
+    command:
+      - "http"
+      - "http://sunny-camel-exact.ngrok-free.app:3000"
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    ports:
+      - 4040:4040
