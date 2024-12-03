@@ -4,8 +4,10 @@ WORKDIR /app
 
 EXPOSE 3000
 
-COPY . /app
+COPY package.json package-lock.json ./
 
 RUN npm install
 
-CMD [ "npm", "run", "start" ]
+COPY . ./
+
+CMD npm run start
