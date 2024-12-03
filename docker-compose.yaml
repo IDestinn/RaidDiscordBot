@@ -5,12 +5,7 @@ services:
     image: "raid_bot_creater"
     container_name: "raid_bot_container"
     stop_signal: SIGINT
-    build:
-      context: .
-    working_dir: "/app"
-    volumes:
-      - .:/app
-    command: npm run start
+    build: .
     restart: always
     env_file:
       - ".env"
