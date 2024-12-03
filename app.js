@@ -3,6 +3,7 @@ import express from "express";
 import {
   InteractionType,
   InteractionResponseType,
+  InteractionResponseFlags,
   verifyKeyMiddleware,
 } from "discord-interactions";
 import { DiscordRequest, GenerateAnnouncement } from "./utils.js";
@@ -154,8 +155,15 @@ app.post(
           };
 
           try {
+            await res.send({
+              type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+              data: {
+                content: "Вы были удалены из группы",
+                flags: InteractionResponseFlags.EPHEMERAL,
+              },
+            });
             await DiscordRequest(endpoint, response);
-            return res.sendStatus(200);
+            return;
           } catch (err) {
             console.error("Error sending message:", err);
           }
@@ -191,8 +199,15 @@ app.post(
           };
 
           try {
+            await res.send({
+              type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+              data: {
+                content: "Вы в группе!",
+                flags: InteractionResponseFlags.EPHEMERAL,
+              },
+            });
             await DiscordRequest(endpoint, response);
-            return res.sendStatus(200);
+            return;
           } catch (err) {
             console.error("Error sending message:", err);
           }
