@@ -7,9 +7,9 @@ services:
     stop_signal: SIGINT
     build:
       context: .
-    working_dir: "/usr/src/app/raid_bot"
+    working_dir: "/app"
     volumes:
-      - .:/usr/src/app/raid_bot
+      - .:/app
     command: npm run start
     restart: always
     env_file:
